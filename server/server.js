@@ -13,6 +13,8 @@ app.get('/', (req, res) => {
 });
 
 // MongoDB Connection
+
+console.log("Mongo URI:", process.env.MONGODB_URI);
 mongoose.connect(process.env.MONGODB_URI,{serverSelectionTimeoutMS: 30000})
   
   .then(() => console.log('MongoDB Atlas Connected'))
