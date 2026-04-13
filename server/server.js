@@ -13,9 +13,9 @@ app.get('/', (req, res) => {
 });
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('Connected to MongoDB Compass locally'))
-  .catch(err => console.error('Could not connect to MongoDB', err));
+mongoose.connect(process.env.MONGODB_URI,{serverSelectionTimeoutMS: 30000})
+  .then(() => console.log('MongoDB Atlas Connected'))
+  .catch(err => console.error('MongoDB Connection error:', err));
 
 // --- API ROUTES ---
 
