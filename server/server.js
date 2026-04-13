@@ -8,6 +8,9 @@ const { Volunteer, HelpRequest, CrisisLocation, Notification } = require('./mode
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get('/', (req, res) => {
+  res.send('AidMap Backend is Running 🚀');
+});
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
