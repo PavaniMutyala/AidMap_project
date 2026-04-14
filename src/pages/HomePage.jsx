@@ -34,9 +34,13 @@ const AnimatedStat = ({ val, label, color, delay }) => {
   const display = isNumber ? val.replace(/\d+/, count) : val;
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <div style={{ fontSize: '2.2rem', fontWeight: 800, color, fontFamily: 'Outfit' }}>{display}</div>
-      <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{label}</div>
+    <div style={{ 
+      textAlign: 'center', 
+      minWidth: '130px',
+      padding: '0 20px'
+    }}>
+      <div style={{ fontSize: '3rem', fontWeight: 800, color, fontFamily: 'Outfit', lineHeight: 1 }}>{display}</div>
+      <div style={{ fontSize: '0.9rem', color: '#f1f5f9', fontWeight: 500, marginTop: '12px' }}>{label}</div>
     </div>
   );
 };
@@ -46,37 +50,43 @@ export default function HomePage() {
     <div>
       {/* ===== HERO ===== */}
       <section className="hero" id="hero" style={{
-        backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.95)), url('https://media.istockphoto.com/id/1498170916/photo/a-couple-is-taking-a-bag-of-food-at-the-food-and-clothes-bank.jpg?s=612x612&w=0&k=20&c=0fnD_g46lvoZ5NdzX5zYOSM4PzM95ezfs5uMe9D1QKs=')`,
+        backgroundImage: `linear-gradient(rgba(24, 36, 51, 0.75), rgba(15, 23, 42, 0.95)), url('https://media.istockphoto.com/id/1498170916/photo/a-couple-is-taking-a-bag-of-food-at-the-food-and-clothes-bank.jpg?s=612x612&w=0&k=20&c=0fnD_g46lvoZ5NdzX5zYOSM4PzM95ezfs5uMe9D1QKs=')`,
         backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        backgroundPosition: 'center',
+        paddingTop: '100px',
+        paddingBottom: '60px',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        textAlign: 'center'
       }}>
-        <div className="hero-content">
-          <div className="hero-badge">
+        <div className="hero-content" style={{ maxWidth: '800px', margin: '0 auto', animation: 'fadeInUp 0.8s ease' }}>
+          <div className="hero-badge" style={{ background: 'rgba(59, 130, 246, 0.15)', border: '1px solid rgba(59, 130, 246, 0.3)', color: '#3b82f6', display: 'inline-flex', padding: '6px 16px', borderRadius: '999px', fontSize: '0.85rem', marginBottom: '24px', alignItems: 'center', gap: '8px' }}>
             <FiZap /> AI-Powered Crisis Response Platform
           </div>
-          <h1>
-            Connecting <span className="highlight">Help</span> to Those
-            <br />Who Need It Most
+          <h1 style={{ fontSize: '4.5rem', fontWeight: 900, marginBottom: '20px', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px' }}>
+            <FiMapPin style={{ color: '#3b82f6' }} />
+            <span>Aid<span style={{ color: '#f97316' }}>Map</span></span>
           </h1>
-          <p className="hero-tagline">
-            AidMap uses AI and real-time heatmaps to intelligently connect volunteers,
-            NGOs, and communities — enabling faster, smarter crisis response.
+          <p className="hero-tagline" style={{ color: '#f1f5f9', fontSize: '1.25rem', maxWidth: '600px', margin: '0 auto 40px', lineHeight: '1.7' }}>
+             <strong>Mapping the Aid.</strong> A comprehensive platform seamlessly bridging the gap between those in need and those who can help. Instantly coordinate volunteers and make a profound local impact.
           </p>
-          <div className="hero-buttons">
+          <div className="hero-buttons" style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link to="/register" className="btn btn-accent btn-lg">
               <FiUsers /> Register Now
             </Link>
             <Link to="/dashboard/ngo" className="btn btn-primary btn-lg">
               <FiShield /> View Dashboard
             </Link>
-            <Link to="/map" className="btn btn-outline btn-lg">
+            <Link to="/map" className="btn btn-outline btn-lg" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.2)' }}>
               <FiMap /> Live Map
             </Link>
           </div>
 
           {/* Floating stats */}
           <div style={{
-            display: 'flex', gap: 32, justifyContent: 'center', marginTop: 60,
+            display: 'flex', gap: '32px', justifyContent: 'center', marginTop: '60px',
             flexWrap: 'wrap', animation: 'fadeInUp 1s ease 0.5s both'
           }}>
             {[
